@@ -24,7 +24,11 @@
   <meta property="og:url" content="{{ canonical }}">
   <meta property="og:title" content="{% if page.title %}{% if site.titlecase %}{{ page.title | titlecase | truncate:70 }}{% else %}{{ page.title | truncate:70 }}{% endif %} - {% endif %}{{ site.title }}">
   {% if page.title %}{% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | condense_spaces | truncate:200 }}">{% endif %}{% else %}{% if site.description %}<meta property="og:description" content="{{ site.description | truncate:200 }}">{% endif %}{% endif %}
-
+  {% if page.keywords %}
+  <meta name="keywords" content="{{ page.keywords }}">
+  {% else %}
+  <meta name="keywords" content="{{ site.keywords }}">
+  {% endif %}
   {% include custom/head.html %}
 
   {% comment %}
@@ -33,4 +37,24 @@
   <link href="{{ root_url }}/stylesheets/screen.css" media="screen, projection, print" rel="stylesheet" type="text/css">
 
   {% include google_analytics.html %}
+
+
+  <!-- 
+  To collect end-user usage analytics about your application, 
+  insert the following script into each page you want to track.
+  Place this code immediately before the closing </head> tag,
+  and before any other scripts. Your first data will appear 
+  automatically in just a few seconds.
+  -->
+  <script type="text/javascript">
+    var appInsights=window.appInsights||function(config){
+      function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
+      }({
+          instrumentationKey:"2172a880-a282-423b-bc05-cfbdd73892fa"
+      });
+        
+      window.appInsights=appInsights;
+      appInsights.trackPageView();
+  </script>
+
 </head>

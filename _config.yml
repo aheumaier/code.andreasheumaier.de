@@ -6,8 +6,9 @@ url: https://code.andreasheumaier.de
 title: Minimal Mistakes
 subtitle: Technology & Fairy Tales
 author: Andreas Heumaier
-simple_search: https://www.google.com/yetisoft
-description: code.andreasheumaier.de
+simple_search: https://google.com/search
+description: Andreas Heumaier (aheumaier) cloud-a-holic Geek Notes. Human compiled Brainwork by Andreas Heumaier (aheumaier).
+keywords: Andreas Heumaier, aheumaier, Cloud, Kubernetes, Docker, coding, programming, Ruby, Ruby On Rails, Azure, Mircosoft, AWS, Amazon, Infrastructure As Code, Devops
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -27,7 +28,7 @@ email:
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
-permalink: /blog/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
 source: source
 destination: public
 plugins: plugins
