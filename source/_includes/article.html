@@ -1,3 +1,4 @@
+<!--
 {% unless page.no_header %}
   <header class="page-header">
     {% unless page.meta == false %}
@@ -34,3 +35,9 @@
 {% else %}
 <div class="entry-content clearfix" itemprop="articleBody description">{{ content }}</div>
 {% endif %}
+
+-->
+
+<h3><a href={{ root_url }}{{ post.url }}>{{ post.title }}</a></h3>
+<div class="time">{% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}</div>
+{{ content | expand_urls: root_url }}
