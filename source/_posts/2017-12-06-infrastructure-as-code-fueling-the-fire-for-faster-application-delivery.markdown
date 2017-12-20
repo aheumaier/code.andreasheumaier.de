@@ -4,6 +4,9 @@ title: "Infrastructure As Code: Fueling the fire for faster application delivery
 date: 2017-12-06 16:49:32 +0100
 comments: true
 categories: 
+  - Infrastructure As Code
+  - azure 
+  - cloud 
 ---
 > **To achieve success** in today’s digital age, enterprises must be customer-obsessed and
 > systematically reinvent themselves to serve informed and empowered customers.

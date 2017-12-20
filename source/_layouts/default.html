@@ -6,13 +6,9 @@
     {% include navigation.html %}
   </header>
   <div class="container home">
-    <div id="content">
-
         {{ content | expand_urls: root_url }}
-
-    </div>
   </div>
-  <footer role="contentinfo">
+  <footer>
     {% include footer.html %}
   </footer>
   {% include after_footer.html %}

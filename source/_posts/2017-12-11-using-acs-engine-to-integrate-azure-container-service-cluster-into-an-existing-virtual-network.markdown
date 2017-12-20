@@ -4,6 +4,9 @@ title: "ACS Engine: Integrate Azure Container Service cluster into an existing v
 date: 2017-12-11 15:48:48 +0100
 comments: true
 categories: 
+  - azure 
+  - cloud
+  - container
 ---
 When I discuss with customers about [Azure Container Service](https://docs.microsoft.com/de-de/azure/container-service/kubernetes/container-service-intro-kubernetes) in the dawn of [AKS](https://docs.microsoft.com/de-de/azure/aks/), one of the most frequent question that they ask to me is: 
 

@@ -23,11 +23,30 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ canonical }}">
   <meta property="og:title" content="{% if page.title %}{% if site.titlecase %}{{ page.title | titlecase | truncate:70 }}{% else %}{{ page.title | truncate:70 }}{% endif %} - {% endif %}{{ site.title }}">
-  {% if page.title %}{% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | condense_spaces | truncate:200 }}">{% endif %}{% else %}{% if site.description %}<meta property="og:description" content="{{ site.description | truncate:200 }}">{% endif %}{% endif %}
+  {% if page.title %}
+  {% if page.description %}<meta property="og:description" content="{{ page.description | strip_html | condense_spaces | truncate:200 }}">{% endif %}
+  {% else %}
+  {% if site.description %}<meta property="og:description" content="{{ site.description | truncate:200 }}">{% endif %}
+  {% endif %}
   {% if page.keywords %}
   <meta name="keywords" content="{{ page.keywords }}">
   {% else %}
   <meta name="keywords" content="{{ site.keywords }}">
+  <meta property="og:Section" content="website"/>
+  <meta property="og:image" content="/img/avatar.jpg"/>
+  <meta property="og:site_name" content="{{ site.title }}"/>
+
+  <!-- twitter card meta tags -->
+<meta property="twitter:account_id" content="285428413" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@aheumaier">
+<meta name="twitter:creator" content="@aheumaier">
+<meta name="twitter:title" content="{{ site.title }}: {{ if eq .Section "post" }}{{ .Title }}{{ else }}Home{{ end }}">
+<meta name="twitter:description" content="{{ if eq .Section "post" }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image:src" content="/img/share.png">
+<meta name="twitter:image:width" content="500">
+<meta name="twitter:image:height" content="500">
+<meta name="twitter:domain" content="code.andreasheumaier.de">
   {% endif %}
   {% include custom/head.html %}
 

@@ -11,50 +11,34 @@ single: true
     <meta itemprop="url" content="{{site.url}}" />
     <article >
       {% include article.html %}
-      <footer class="post-footer">
-        <p class="meta text-muted">
-          {% include post/author.html %}
-          {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
-          <br>{% include post/categories.html %}
-        </p>
+      <footer >
         {% if page.previous.url or page.next.url %}
           <div class="pager">
             {% if page.previous.url %}
-            
-              
+                          
                 <a href="{{page.previous.url}}" class="col-xs-12 col-md-4 btn btn-default" title="Previous Post: {{page.previous.title}}"> 
                   <div class="text-muted">
-                    <small>ffghdfdfhdfhdfhfghPrevious Post</small>
+                    <small>Previous Post</small>
                   </div>
-                  <div class="pager-title">
+                  <div>
                     <h4>{{page.previous.title}}</h4>
                   </div>
                 </a>
               
-            
+          
             {% endif %}
             {% if page.next.url %}
               
-              <a href="{{page.next.url}}" class="col-xs-12 col-md-4 btn btn-default pull-right" title="Next Post: {{page.next.title}}">
-                <div class="text-muted">
-                  <small>Next Post</small>
-                </div>
+              <a href="{{page.next.url}}" title="Next Post: {{page.next.title}}">
                 <div class="pager-title">
-                  <h4>{{page.next.title}}</h4>
+                    Next Post
+                  <h3>{{page.next.title}}</h3>
                 </div>
-              </a>
-              
-            
+              </a>            
             {% endif %}
           </div>
         {% endif %}
       </footer>
     </article>
-    {% if site.disqus_short_name and page.comments == true %}
-      <section>
-        <h2>Comments</h2>
-        <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
-      </section>
-    {% endif %}
   </div>
 </div>

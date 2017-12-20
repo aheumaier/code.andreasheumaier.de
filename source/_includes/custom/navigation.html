@@ -1,11 +1,11 @@
             <nav>
                 <ul class="main">
                     <li>
-                        <a href="https://code.andreasheumaier.com">{{ site.title }}</a>
+                        <a href="https://code.andreasheumaier.de">{{ site.title }}</a>
                     </li>
                 </ul>
                 <ul class="social">
-                    {{ if .RSSlink }}
+                    {{ if site.subscribe_rss  }}
                     <li>
                         <a href="{{ site.subscribe_rss }}" class="fa fa-rss" target="_blank"></a>
                     </li>

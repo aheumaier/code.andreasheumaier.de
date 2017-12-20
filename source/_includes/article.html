@@ -1,43 +1,21 @@
-<!--
-{% unless page.no_header %}
-  <header class="page-header">
-    {% unless page.meta == false %}
-      <p class="meta text-muted text-uppercase">
-        {% include post/date.html %}{{ time }}
-        {% if site.disqus_short_name and page.comments != false and post.comments != false and site.disqus_show_comment_count == true %}
-           | <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread" itemprop="discussionUrl"
-             data-disqus-identifier="{% if post.meta.disqus_id %}{{ post.meta.disqus_id }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">Comments</a>
-        {% endif %}
-      </p>
-    {% endunless %}
-    {% if index %}
-      <h2 class="entry-title" itemprop="name headline"><a href="{{ root_url }}{{ post.url }}" itemprop="url">{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</a></h2>
-    {% else %}
-    <h1 class="entry-title" itemprop="name headline">
-        {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
-        {% if page.subtitle %}
-            <small>
-                {% if site.titlecase %}{{ page.subtitle | titlecase }}{% else %}{{ page.subtitle }}{% endif %}
-            </small>
-        {% endif %}
-    </h1>
-    {% endif %}
-  </header>
-{% endunless %}
 {% if index %}
-  <div class="entry-content clearfix" itemprop="articleBody description">{{ content | excerpt }}</div>
-  {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
-  {% if excerpted == 'true' %}
-    <footer>
-      <a class="read-more btn btn-default" href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>
-    </footer>
-  {% endif %}
+<h2><a href={{ root_url }}{{ post.url }}>{{ post.title }}</a></h2>
+<div class="time">
+  {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
+  {% include post/categories.html %}
+</div>
 {% else %}
-<div class="entry-content clearfix" itemprop="articleBody description">{{ content }}</div>
+<h2><a href={{ root_url }}{{ post.url }}>{{ page.title }}</a></h2>
+<div class="time">
+  {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
+  {% include post/categories.html %}
+</div>
 {% endif %}
 
--->
-
-<h3><a href={{ root_url }}{{ post.url }}>{{ post.title }}</a></h3>
-<div class="time">{% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}</div>
-{{ content | expand_urls: root_url }}
+{% if index %}
+<div>{{ content | excerpt }}</div>
+{% capture excerpted %}{{ content | has_excerpt }}{% endcapture %} 
+{% if excerpted == 'true' %}<a href="{{ root_url }}{{ post.url }}">{{ site.excerpt_link }}</a>{% endif %} 
+{% else %}
+<div >{{ content }}</div>
+{% endif %}
